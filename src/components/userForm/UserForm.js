@@ -1,27 +1,84 @@
 import React from 'react';
 import './Userform.css';
+import { Button, InputGroup, FormControl, Dropdown } from 'react-bootstrap';
 
+const UserForm = () => {
+    return (
+<article className="bg-white br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+        <main className="pa4 black-80">
+          <div className="measure">
+            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+              <legend className="f1 fw6 ph0 mh0">Submit New Story</legend>
+              <div className="mt3">
+              
+                {/* dropdown inputs */}
+                <div className="mb-2 w-100">
+                  <div>
+                    <label for="type" className="pa1">Type of request:</label>
 
-const UserForm = ({ onInputChange, onButtonSubmit }) => {
-  return (
-    <div>
-      <p className='f3'>
-        {'This Magic Brain will detect faces in your pictures. Give it a try!'}
-      </p>
-      <div className='center'>
-        <div className='form center pa4 br3 shadow-5'>
-          <input 
-            className='f4 br2 pa2 w-70 center' type='tex' 
-            onChange={onInputChange} 
-          />
-          <button 
-            className='w-30 grow br2 f4 link ph3 pv2 dib white bg-light-purple'
-            onClick={onButtonSubmit}
-            >Detect</button>
-        </div>
-      </div>
-    </div>
-  );
-}
+                    <select className="pointer" name="type" id="type">
+                      <option value="enchancement">Enchancement</option>
+                      <option value="bugfix">Bug Fix</option>
+                      <option value="development">Development</option>
+                      <option value="QA">QA</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="type"  className="pa1">Priority:</label>
+
+                    <select className="pointer" name="type" id="type">
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                  </div>
+                </div>
+
+              {/* summary input */}
+                <InputGroup className="mb-3 fl w-100">
+                 <FormControl
+                    placeholder="Summary"
+                    aria-label="Summary"
+                    aria-describedby="basic-addon1"
+                  />
+                </InputGroup>
+
+                {/* description input */}
+                <InputGroup className="mb-3 fl w-100">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>Description</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl as="textarea" aria-label="With textarea" />
+                </InputGroup>
+
+                {/* estimated time input */}
+                <InputGroup className="mb-3 fl w-100">
+                 <FormControl
+                    placeholder="Estimated Time"
+                    aria-label="Summary"
+                    aria-describedby="basic-addon1"
+                  />
+                </InputGroup>
+
+              {/* cost input */}
+                <InputGroup className="mb-3 fl w-100">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>$</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl aria-label="Amount (to the nearest dollar)" />
+                </InputGroup>
+
+                <Button variant='primary' onClick
+                className="b ph3 pv2 ma1 input-reset ba b--black bg-navy grow pointer f6 dib br3" 
+                >
+                Submit
+              </Button>
+              </div>
+            </fieldset>
+          </div>
+        </main>
+      </article>
+    );
+  }
 
 export default UserForm;
