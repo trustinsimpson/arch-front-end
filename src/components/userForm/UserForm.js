@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Userform.css';
-import { Button, InputGroup, FormControl, Dropdown } from 'react-bootstrap';
+import { Button, InputGroup, FormControl } from 'react-bootstrap';
 
-const UserForm = () => {
+class UserForm extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      Type: '',
+      Priority: '',
+      Summary: '',
+      Description: '',
+      Time: '',
+      Cost: '',
+      formErrors: {email: '', password: ''},
+      emailValid: false,
+      passwordValid: false,
+      formValid: false
+    }
+  }
+
+  render () {
     return (
 <article className="bg-white br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
@@ -14,7 +31,7 @@ const UserForm = () => {
                 {/* dropdown inputs */}
                 <div className="mb-2 w-100">
                   <div>
-                    <label for="type" className="pa1">Type of request:</label>
+                    <label htmlFor="type" className="pa1">Type of request:</label>
 
                     <select className="pointer" name="type" id="type">
                       <option value="enchancement">Enchancement</option>
@@ -24,9 +41,9 @@ const UserForm = () => {
                     </select>
                   </div>
                   <div>
-                    <label for="type"  className="pa1">Priority:</label>
+                    <label htmlFor="priority"  className="pa1">Priority:</label>
 
-                    <select className="pointer" name="type" id="type">
+                    <select className="pointer" name="priority" id="priority">
                       <option value="low">Low</option>
                       <option value="medium">Medium</option>
                       <option value="high">High</option>
@@ -80,5 +97,6 @@ const UserForm = () => {
       </article>
     );
   }
+}
 
 export default UserForm;

@@ -14,7 +14,7 @@ class SignIn extends React.Component {
     this.setState({signInEmail: event.target.value})
   }
 
-  onPasswrodChange = (event) => {
+  onPasswordChange = (event) => {
     this.setState({signInPassword: event.target.value})
   }
 
