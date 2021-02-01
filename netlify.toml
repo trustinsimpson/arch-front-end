@@ -1,6 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "/userform"
-  status = 200
-  force = true
-  conditions = {Role = user}

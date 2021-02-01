@@ -11,7 +11,6 @@ class SignIn extends React.Component {
       email: "",
       password: "",
       isAdmin: false,
-      token: "",
     };
   }
 
@@ -36,7 +35,7 @@ class SignIn extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        this.setState.token = data.token;
+        console.log(data);
         if (data.role === "Admin") {
           window.location.href = "../adminStories/AdminStories.js";
         } else {
