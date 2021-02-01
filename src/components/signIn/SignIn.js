@@ -2,28 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Toggle from "../checkButton/CheckButton";
 import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
 
-
-const validate = (values) => {
-  let errors = {};
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  if (!values.email) {
-    errors.email = "Email is required";
-  } else if (!regex.test(values.email)) {
-    errors.email = "Invalid Email";
-  }
-  if (!values.password) {
-    errors.password = "Password is required";
-  } else if (values.password.length < 8) {
-    errors.password = "Password too short";
-  }
-  return errors;
-};
-
-const submitForm = (values) => {
-  console.log(values);
-};
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -32,6 +11,7 @@ class SignIn extends React.Component {
       email: "",
       password: "",
       isAdmin: false,
+      token: "",
     };
   }
 
@@ -56,7 +36,7 @@ class SignIn extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        this.setState.token = data.token;
         if (data.role === "Admin") {
           window.location.href = "../adminStories/AdminStories.js";
         } else {
@@ -66,10 +46,27 @@ class SignIn extends React.Component {
   };
 
   render() {
-    let initialValues = {
+    const initialValues = {
       email: "",
       password: "",
     };
+
+    const validate = (values) => {
+      let errors = {};
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      if (!values.email) {
+        errors.email = "Email is required";
+      } else if (!regex.test(values.email)) {
+        errors.email = "Invalid Email";
+      }
+      if (!values.password) {
+        errors.password = "Password is required";
+      } else if (values.password.length < 8) {
+        errors.password = "Password too short";
+      }
+      return errors;
+    };
+
     return (
       <div>
         <article className="bg-white br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
@@ -80,7 +77,6 @@ class SignIn extends React.Component {
                 <Formik
                   initialValues={initialValues}
                   validate={validate}
-                  onSubmit={submitForm}
                 >
                   {(formik) => {
                     const {
@@ -103,7 +99,7 @@ class SignIn extends React.Component {
                             type="email"
                             id="email"
                             name="email"
-                            value={values.emaail}
+                            value={values.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             className={`pa2 ba black w-100 ${
@@ -151,9 +147,10 @@ class SignIn extends React.Component {
                           <Button
                             variant="primary"
                             type="submit"
-                            className={`b ph3 pv2 ma1 input-reset ba b--black bg-navy grow pointer f6 dib br3 ${
-                              dirty && isValid ? "" : "disabled-btn"
-                            }`}
+                            className={
+                              `b ph3 pv2 ma1 input-reset ba b--black bg-navy grow pointer f6 dib br3 
+                              ${dirty && isValid ? "" : "disabled-btn"}`
+                            }
                             disabled={!(dirty && isValid)}
                             onClick={this.onSubmitSignIn}
                           >
