@@ -92,7 +92,7 @@ class SignIn extends React.Component {
                     return (
                       <Form onSubmit={handleSubmit}>
                         <div className="mt3 form-row">
-                          <label className="db fw6 lh-copy f6" htmlFor="email">
+                          <label className="db fw6 lh-copy f6 center" htmlFor="email">
                             Email
                           </label>
                           <Field
@@ -112,7 +112,7 @@ class SignIn extends React.Component {
                             <span className="error">{errors.email}</span>
                           )}
                         </div>
-                        <div className="mv3 form-row">
+                        <div className="mv3 form-row center">
                           <label
                             className="db fw6 lh-copy f6"
                             htmlFor="password"
