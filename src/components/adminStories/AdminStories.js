@@ -1,6 +1,6 @@
 import React from 'react';
 import '../userForm/Userform.css';
-import { Button, InputGroup, FormControl, Table } from 'react-bootstrap';
+import Table from 'react-bootstrap/Table';
 
 const AdminStories = () => {
     return (

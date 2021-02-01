@@ -1,32 +1,27 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import { ButtonGroup, ToggleButton } from 'react-bootstrap';
+import ReactDOM from 'react-dom';
 
 function Toggle() {
   const [checked, setChecked] = useState(false);
-  const [radioValue, setRadioValue] = useState('1');
-
-  const radios = [
-    { name: 'Active', value: '1' },
-    { name: 'Radio', value: '2' },
-    { name: 'Radio', value: '3' },
-  ];
 
   return (
     <>
       <ButtonGroup toggle className="mb-2">
         <ToggleButton
           type="checkbox"
-          variant="secondary"
-          size="sm"
+          variant="primary"
+          className= "b ph3 pv2 ma1 input-reset ba b--black grow pointer f6 dib br3"
           checked={checked}
-          value="1"
           onChange={(e) => setChecked(e.currentTarget.checked)}
         >
-          Accept
+          {checked ? 'Admin' : 'User'}
         </ToggleButton>
       </ButtonGroup>
-    </>
-  );
+      </>
+      );
 }
+
+ReactDOM.render(<Toggle />, document.getElementById('root'));
 
 export default Toggle;

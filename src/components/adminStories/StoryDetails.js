@@ -1,6 +1,6 @@
 import React from 'react';
 import '../userForm/Userform.css';
-import { Button, InputGroup, FormControl, Table } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 const StoryDetails = (props) => {
     return (
@@ -14,7 +14,7 @@ const StoryDetails = (props) => {
               <legend className="f1 fw6 ph0 mh0">Story #{props.ID} </legend>
               <h5>Type:</h5>
               <p>{props.type}</p>
-              <h5>Priority:</h5>
+              <h5>Complexity:</h5>
               <p>{props.priority}</p>
               <h5>Summary:</h5>
               <p>{props.summary}</p>

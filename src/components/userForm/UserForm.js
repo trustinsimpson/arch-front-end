@@ -41,9 +41,9 @@ class UserForm extends Component {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="priority"  className="pa1">Priority:</label>
+                    <label htmlFor="complexity"  className="pa1">Complexity:</label>
 
-                    <select className="pointer" name="priority" id="priority">
+                    <select className="pointer" name="complexity" id="complexity">
                       <option value="low">Low</option>
                       <option value="medium">Medium</option>
                       <option value="high">High</option>

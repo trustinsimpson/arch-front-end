@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import Toggle from '../checkButton/CheckButton';
 
 const Register = ({ onRouteChange }) => {
   return (
@@ -34,11 +35,7 @@ const Register = ({ onRouteChange }) => {
             </div>
           </fieldset>
           <div>
-           <input className="ma1 pointer" type="checkbox" id="adminCheck">
-           </input>
-           <label className="b" for="adminCheck">
-             Admin?
-            </label>
+           <Toggle />
           </div>
             <Button 
               variant="primary" onClick={() => onRouteChange('home')}

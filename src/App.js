@@ -13,6 +13,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AdminStories from './components/adminStories/AdminStories';
 import Login from './components/signIn/SignIn';
 import StoryDetails from './components/adminStories/StoryDetails';
+import UserStories from './components/userForm/UserStories';
 
 class App extends Component {
   constructor() {
@@ -61,6 +62,7 @@ class App extends Component {
      <Route path="/" component={Login} exact/>
      <Route path="/adminstories" component={AdminStories}/>
      <Route path="/storydetails" component={StoryDetails}/>
+     <Route path="/userstories" component={UserStories}/>
     <Route component={Error}/>
    </Switch>
 </div> 
