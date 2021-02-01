@@ -4,11 +4,8 @@ import { NavLink } from 'react-router-dom';
  
 const Nav = () => {
     return (
-       <div>
-          <NavLink className="pa1" to="/">SignIn</NavLink>
-          <NavLink className="pa1" to="/adminstories">AdminStories</NavLink>
-          <NavLink className="pa1" to="/storydetails">StoryDetails</NavLink>
-          <NavLink className="pa1" to="/userstories">UserStories</NavLink>
+       <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+          <NavLink className='f3 link dim black underline pa3 pointer' to='/'>SignOut</NavLink>
        </div>
     );
 }
