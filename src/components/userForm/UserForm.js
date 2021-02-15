@@ -23,6 +23,7 @@ class UserForm extends React.Component {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        token: "",
         summary: this.state.summary,
         description: this.state.description,
         type: this.state.type,
